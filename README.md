@@ -38,9 +38,9 @@ O código *src/cadastro.php* é somente acessível para usuários logados e os p
 
 * consulta ao cadastro : executado através do método *GET* (sem parâmetros).
 * modificação do campo **photo** : executado através do método *POST* para que o usuário faça upload de uma imagem. O parâmetro passado deve ser o caminho para a imagem no computador cliente.
-* modificação dos demais campos : executado através do método *PUT*, passando os parâmetros (campos e valores a serem atualizados) em formato JSON. No caso da mudança da senha, é necessário passar três parâmetros: **passwd** = senha atual; **newpasswd1** = senha nova; **newpasswd2** = senha nova redigitada.
+* modificação dos demais campos : executado através do método *PUT*, passando os parâmetros em formato JSON (campos e valores a serem atualizados). No caso da mudança da senha, é necessário passar três parâmetros: **passwd** = senha atual; **newpasswd1** = senha nova; **newpasswd2** = senha nova redigitada.
 
-No método *PUT* não necessariamente todos parâmetros devem ser passados na entrada, mas apenas aqueles que for conveniente ao desenvolvedor. Um campo passado com valor de string vazia não será alterado.
+No método *PUT* não necessariamente todos parâmetros devem ser passados na entrada, mas apenas aqueles que forem convenientes ao desenvolvedor. Qualquer campo passado com valor de string vazia não será alterado no banco de dados.
 
 A saída é em formato JSON e retorna todos os valores do cadastro do usuário (exceto senha), além do estado do processamento e eventuais erros com os mesmos três campos de saída do *login.php*.
 
