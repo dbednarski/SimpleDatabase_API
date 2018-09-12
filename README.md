@@ -2,6 +2,9 @@
 
 Essa API foi desenvolvida em PHP para o gerenciamento de cadastros de usuários em um banco de dados MySQL.
 
+
+
+
 ## Estrutura
 
 * `src/`: diretório com os códigos fonte .php.
@@ -26,7 +29,7 @@ O banco de dados `db/usuarios.sql` possui cinco colunas, ou **campos**:
 * **photo** : a URL para a imagem do usuário
 * **passwd** : a senha do usuário criptografada (neste arquivo-exemplo, a senha descriptografada de todos é **1234**)
 
-A senha do usuário root do banco de dados é uma string nula.
+**A senha do usuário root do banco de dados é uma string nula.**
 
 
 ### login.php
@@ -78,6 +81,16 @@ Saída:
 }
 ```
 
+No caso de erro de acesso ao banco de dados ou usuário não logado, a saída será:
+
+```
+{
+  "status":"status",
+  "message":"message",
+  "user_message":"user_message"
+}
+```
+
 
 
 ## Requisitos para a instalação e testes
@@ -88,6 +101,8 @@ Saída:
 Na sequência as instruções de instalação serão dadas para distribuições Linux. No entanto, é possível instalar a API em Mac e no Windows sem muitos problemas.
 
 Para realizar o teste da instalação, é necessário que o terminal Bash esteja instalado no sistema. O Windows, a partir da versão 10, está apto nativamente a rodar shell scripts, apenas sendo necessário alterar suas configurações ([leia aqui](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) para mais informações). Usuários de versões mais antigas do Windows podem instalar programas como [Cygwin](http://www.cygwin.com/) para rodá-lo.
+
+
 
 
 ## Instalando
@@ -101,25 +116,33 @@ $ mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | mysql -u root -p usuarios
 ```
 
-2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o local adequado no interior do diretório `**www/**`. Nesse mesmo local, criar um diretório `img/`. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório `img/`.
+Quando a senha for pedida, apenas aperte a tecla ENTER.
+
+
+2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o local adequado no interior do diretório **`www/`**. Nesse mesmo local, criar um diretório `img/`. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório `img/`.
 
 
 ### Em um servidor local
 
-1. Primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
+1. Primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor local criado através do XAMMP. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
 
 ```
-$ /opt/lampp/mysql -u root -e "create database usuarios;"
-$ sudo cat db/usuarios.sql | /opt/lampp/mysql -u root -p usuarios
+$ /opt/lampp/bin/mysql -u root -e "create database usuarios;"
+$ cat db/usuarios.sql | /opt/lampp/bin/mysql -u root -p usuarios
 ```
 
-2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o diretório do localhost:
+Quando a senha for pedida, apenas aperte a tecla ENTER.
+
+
+2. Em seguida, o conteúdo dentro de `src/` deve ser copiado para o diretório do localhost:
 
 ```
 $ sudo cp src/* -fr /opt/lampp/htdocs
 $ sudo mkdir /opt/lampp/htdocs/img
 $ sudo chmod -R a+rx /opt/lampp/htdocs
+$ sudo chmod a+w /opt/lampp/htdocs/img
 ``` 
+
 
 
 ## Testando
@@ -139,6 +162,7 @@ $ ./teste.sh "http://localhost"
 ``` 
 
 A instalação pode ser considerada de sucesso se as impressões durante a execução do script `teste.sh` forem idênticas às registradas no arquivo `testes/teste.txt`. Excetua-se os caminhos para o servidor.
+
 
 
 

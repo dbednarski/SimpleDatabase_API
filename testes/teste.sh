@@ -127,6 +127,11 @@ echo -e "\n\n" "----------------------------------------------\n"
 echo -en "  10.4) Testando fazer logout através do método DELETE no código login.php quando deslogado\n\n  Comando: curl -X DELETE -b cookie.txt -c cookie.txt $server/login.php\n  Saída: "
 curl -X DELETE -b cookie.txt -c cookie.txt $server/login.php
 
+echo -e "\n\n" "----------------------------------------------\n"
+
+echo -en "  10.5) Testando fazer login com senha errada através do método POST no código login.php\n\  nemail: daniel@gmail.com\n  senha: 1111\n\n  Comando: curl -X POST -c cookie.txt -F \"email=daniel@gmail.com\" -F \"passwd=1234\"  $server/login.php\n  Saída: "
+curl -X POST -c cookie.txt -F "email=daniel@gmail.com" -F "passwd=1111"  $server/login.php
+
 echo -e "\n\n==============================================\n"
 
 #########
