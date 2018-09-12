@@ -101,7 +101,7 @@ $ mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | mysql -u root -p usuarios
 ```
 
-2. Em seguida, **TODO** o conteúdo dentro de *src/* deve ser copiado para o local adequado no interior do diretório **www/**. Nesse mesmo local, criar um diretório *img/*. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório *img/*.
+2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o local adequado no interior do diretório **www/**. Nesse mesmo local, criar um diretório `img/`. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório `img/`.
 
 
 ### Em um servidor local
@@ -113,7 +113,7 @@ $ /opt/lampp/mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | /opt/lampp/mysql -u root -p usuarios
 ```
 
-2. Em seguida, **TODO** o conteúdo dentro de *src/* deve ser copiado para o diretório do localhost:
+2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o diretório do localhost:
 
 ```
 $ sudo cp src/* -fr /opt/lampp/htdocs
@@ -131,14 +131,14 @@ $ cd testes
 $ ./teste.sh CAMINHO_NO_SERVIDOR
 ``` 
 
-No caso de uma instalação da API feita no servidor local usando o XAMPP:
+No caso da API ter sido instalada no servidor local, fazendo-se uso do XAMPP:
 
 ```
 $ cd testes
 $ ./teste.sh "http://localhost"
 ``` 
 
-A instalação pode ser considerada de sucesso se as impressões durante a execução do script `teste.sh` forem idênticas às registradas no arquivo testes/teste.txt. Excetua-se os caminhos para o servidor.
+A instalação pode ser considerada de sucesso se as impressões durante a execução do script `teste.sh` forem idênticas às registradas no arquivo `testes/teste.txt`. Excetua-se os caminhos para o servidor.
 
 
 
