@@ -85,35 +85,35 @@ Saída:
 1. Para servidor web: MySQL, PHP (>4.1.3), curl
 2. Para servidor local: [XAMPP](https://www.apachefriends.org/pt_br/index.html), curl
 
-Na sequência as instruções de instalação serão dadas para distribuições Linux. No entanto, é possível instalá-lo em Mac e no Windows sem muitos problemas.
+Na sequência as instruções de instalação serão dadas para distribuições Linux. No entanto, é possível instalar a API em Mac e no Windows sem muitos problemas.
 
-Para realizar o teste da instalação, é necessário que o terminal bash esteja instalado no sistema. O Windows, a partir da versão 10, está apto nativamente a rodar bash scripts, apenas sendo necessário alterar suas configurações [leia aqui](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) para mais informações. Usuários de versões mais antigas do Windows podem instalar programas como [Cygwin](http://www.cygwin.com/) para rodá-lo.
+Para realizar o teste da instalação, é necessário que o terminal Bash esteja instalado no sistema. O Windows, a partir da versão 10, está apto nativamente a rodar shell scripts, apenas sendo necessário alterar suas configurações ([leia aqui](https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) para mais informações). Usuários de versões mais antigas do Windows podem instalar programas como [Cygwin](http://www.cygwin.com/) para rodá-lo.
 
 
 ## Instalando
 
 ### Em um servidor web
 
-1. Para instalar, primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
+1. Primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
 
 ```
 $ mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | mysql -u root -p usuarios
 ```
 
-2. Em seguida, deve copiar **TODO** o conteúdo dentro de *src/* para o local adequado no interior do diretório **www/**. Nesse mesmo local, criar um diretório *img/*
+2. Em seguida, **TODO** o conteúdo dentro de *src/* deve ser copiado para o local adequado no interior do diretório **www/**. Nesse mesmo local, criar um diretório *img/*. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório *img/*.
 
 
 ### Em um servidor local
 
-1. Para instalar, primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
+1. Primeiramente é necessário importar o banco de dados `db/usuarios.sql` para o servidor. Considerando que o usuário esteja dentro do diretório raiz deste pacote, deve seguir com os seguintes comandos no terminal:
 
 ```
 $ /opt/lampp/mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | /opt/lampp/mysql -u root -p usuarios
 ```
 
-2. Em seguida, deve copiar **TODO** o conteúdo dentro de *src/* para o diretório do localhost:
+2. Em seguida, **TODO** o conteúdo dentro de *src/* deve ser copiado para o diretório do localhost:
 
 ```
 $ sudo cp src/* -fr /opt/lampp/htdocs
