@@ -29,7 +29,7 @@ O banco de dados `db/usuarios.sql` possui cinco colunas, ou **campos**:
 * **photo** : a URL para a imagem do usuário
 * **passwd** : a senha do usuário criptografada (neste arquivo-exemplo, a senha descriptografada de todos é **1234**)
 
-**A senha do usuário root do banco de dados é uma string nula.**
+A senha do usuário root do banco de dados é uma string nula.
 
 
 ### login.php
