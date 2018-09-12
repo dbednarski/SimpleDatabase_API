@@ -2,13 +2,32 @@
 #
 #   Script para testar a API Pushstart
 #   
-#   - Necessário ter instalado o curl
-#   - Primeiro parâmetro passado deve ser o servidor
+#   *Necessário ter instalado o curl*
+#   
+#
+#   Maneira de chamar este script:
+#   ./test.sh CAMINHO_NO_SERVIDOR_ONDE_ESTÁ_A_API
+#
 #
 
 
-server="$1"
-cp tmp.jpeg $HOME
+# Verificando se o número de parâmetros passados está correto com o esperado
+if [ "$#" -ne 1 ]; then
+    echo "ERRO: O script necessita de um parâmetro apenas indicando endereço para o servidor onde a API foi instalada."
+    exit 1
+else
+    server="$1"
+fi
+
+
+# Testando se o servidor existe e está acessível
+ping -c 1 $server > /dev/null; access="$?"
+if [ "$access" -ne "0" ]; then
+    echo "ERRO: O servidor passado como parâmetro não existe ou não está acessível."
+    exit 1
+fi
+
+#localpath=$(pwd)
 
 
 #########
@@ -75,8 +94,8 @@ curl -X PUT -H "Content-Type: application/json" -d '{"email":"daniel@gmail.com",
 echo -e "\n\n==============================================\n"
 
 
-echo -en "8) Alterando o campo *photo* através do método POST do código cadastro.php:\n\nComando: curl -X POST -H \"Content-Type: multipart/form-data\" -F \"photo=@$HOME/tmp.jpeg\" -b cookie.txt -c cookie.txt $server/cadastro.php\nSaída: "
-curl -X POST -H "Content-Type: multipart/form-data" -F "photo=@$HOME/tmp.jpeg" -b cookie.txt -c cookie.txt $server/cadastro.php
+echo -en "8) Alterando o campo *photo* através do método POST do código cadastro.php:\n\nComando: curl -X POST -H \"Content-Type: multipart/form-data\" -F \"photo=@tmp.jpeg\" -b cookie.txt -c cookie.txt $server/cadastro.php\nSaída: "
+curl -X POST -H "Content-Type: multipart/form-data" -F "photo=@tmp.jpeg" -b cookie.txt -c cookie.txt $server/cadastro.php
 
 echo -e "\n\n==============================================\n"
 
@@ -100,8 +119,8 @@ curl -X PUT -H "Content-Type: application/json" -d '{"email":"","name":"Claudio"
 
 echo -e "\n\n" "----------------------------------------------\n"
 
-echo -en "  10.3) Testando método POST no código cadastro.php quando deslogado\n\n  Comando: curl -X POST -H \"Content-Type: multipart/form-data\" -F \"photo=@$HOME/tmp.jpeg\" -b cookie.txt -c cookie.txt $server/cadastro.php\n  Saída: "
-curl -X POST -H "Content-Type: multipart/form-data" -F "photo=@$HOME/tmp.jpeg" -b cookie.txt -c cookie.txt $server/cadastro.php
+echo -en "  10.3) Testando método POST no código cadastro.php quando deslogado\n\n  Comando: curl -X POST -H \"Content-Type: multipart/form-data\" -F \"photo=@$tmp.jpeg\" -b cookie.txt -c cookie.txt $server/cadastro.php\n  Saída: "
+curl -X POST -H "Content-Type: multipart/form-data" -F "photo=@tmp.jpeg" -b cookie.txt -c cookie.txt $server/cadastro.php
 
 echo -e "\n\n" "----------------------------------------------\n"
 
@@ -112,5 +131,4 @@ echo -e "\n\n==============================================\n"
 
 #########
 
-
-rm $HOME/tmp.jpeg
+exit 0
