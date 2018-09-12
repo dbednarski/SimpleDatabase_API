@@ -101,7 +101,7 @@ $ mysql -u root -e "create database usuarios;"
 $ sudo cat db/usuarios.sql | mysql -u root -p usuarios
 ```
 
-2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o local adequado no interior do diretório **www/**. Nesse mesmo local, criar um diretório `img/`. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório `img/`.
+2. Em seguida, **TODO** o conteúdo dentro de `src/` deve ser copiado para o local adequado no interior do diretório `**www/**`. Nesse mesmo local, criar um diretório `img/`. Garantir que haja acesso geral para a leitura desse conteúdo, e permissão para gravação dentro do diretório `img/`.
 
 
 ### Em um servidor local
