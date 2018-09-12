@@ -6,14 +6,14 @@ Essa API foi desenvolvida em PHP para o gerenciamento de cadastros de usuários 
 
 * `src/`: diretório com os códigos fonte .php.
     * |----`scr/login.php`
- * |----`src/cadastro.php`
- * |----`src/.htaccess`
+    * |----`src/cadastro.php`
+    * |----`src/.htaccess`
 * `sql/`: diretório com o backup do banco de dados.
- * |----`sql/usuarios.sql`
+    * |----`sql/usuarios.sql`
 * `testes/`: diretório com os arquivos para o teste de instalação.
- * |----`testes/teste.sh`
- * |----`testes/teste.txt`
- * |----`testes/tmp.jpeg`
+    * |----`testes/teste.sh`
+    * |----`testes/teste.txt`
+    * |----`testes/tmp.jpeg`
 
 
 ### Banco de dados
@@ -59,12 +59,9 @@ O código `src/cadastro.php` é somente acessível para um usuário logado e o p
 * Consulta ao cadastro : executado através do método *GET* (sem parâmetros).
 * Modificação do campo **photo** : executado através do método *POST* para que o usuário faça upload de uma imagem. O parâmetro passado deve ser o caminho para a imagem no computador cliente.
 * Modificação dos demais campos : executado através do método *PUT*, passando os parâmetros em formato JSON (campos e valores a serem atualizados).
-
-Observações sobre o método *PUT*:
-
-* No caso do usuário requerer mudança da senha, são necessários três parâmetros de entrada: **passwd** = senha atual; **newpasswd1** = senha nova; **newpasswd2** = senha nova redigitada.
-* Não necessariamente todos parâmetros devem ser passados na entrada, mas apenas aqueles que forem convenientes ao desenvolvedor.
-* Qualquer campo passado cujo valor seja uma string vazia não será alterado no banco de dados.
+    * No caso do usuário requerer mudança da senha, são necessários três parâmetros de entrada: **passwd** = senha atual; **newpasswd1** = senha nova; **newpasswd2** = senha nova redigitada.
+    * Não necessariamente todos parâmetros devem ser passados na entrada, mas apenas aqueles que forem convenientes ao desenvolvedor.
+    * Qualquer campo passado cujo valor seja uma string vazia não será alterado no banco de dados.
 
 A saída é em formato JSON e retorna todos os valores do cadastro do usuário (exceto senha), além do estado do processamento e eventuais erros com os mesmos três campos de saída do `src/login.php`.
 
