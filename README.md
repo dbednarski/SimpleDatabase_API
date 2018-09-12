@@ -138,7 +138,7 @@ $ cd testes
 $ ./teste.sh "http://localhost"
 ``` 
 
-A instalação foi um sucesso se as impressões após o teste forem idênticas às registradas no arquivo testes/teste.txt. Excetua-se os caminhos para o servidor, casa não sejá *localhost*.
+A instalação pode ser considerada de sucesso se as impressões durante a execução do script `teste.sh` forem idênticas às registradas no arquivo testes/teste.txt. Excetua-se os caminhos para o servidor.
 
 
 
