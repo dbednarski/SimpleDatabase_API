@@ -1,4 +1,4 @@
-# PUSHSTART API
+# SIMPLE DATABASE API
 
 Essa API foi desenvolvida em PHP para o gerenciamento de cadastros de usuários em um banco de dados MySQL.
 
